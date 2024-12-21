@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #2b2b2b; /* Dark background for a sleek look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calc-body {
+    width: 320px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1f1f1f, #353535); /* Subtle dark gradient */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5), inset 0px -3px 10px rgba(255, 255, 255, 0.05);
+    padding: 20px;
+}
+
+.calc-screen {
+    background: #1a1a1a; /* Darker screen for contrast */
+    border-radius: 15px;
+    border: 2px solid #444;
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#calc-display {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #fff;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+    outline: none;
+}
+
+.calc-button-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.button {
+    flex: 1;
+    background: linear-gradient(145deg, #333, #4b4b4b); /* Smooth button gradient */
+    border: none;
+    margin: 5px;
+    height: 60px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #ddd;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), inset 0px -2px 6px rgba(255, 255, 255, 0.03);
+}
+
+.button:hover {
+    background: linear-gradient(145deg, #505050, #606060); /* Hovered button gradient */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4), inset 0px -2px 6px rgba(255, 255, 255, 0.05);
+}
+
+.button:active {
+    background: #444; /* Pressed button state */
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.6);
+    transform: translateY(0);
+}
+
+.button.zero {
+    flex: 2; /* Make the "0" button twice as wide */
+}
+
+.button.c {
+    background: #d9534f; /* Red for clear */
+    color: white;
+}
+
+.button.c:hover {
+    background: #e74c3c;
+}
+
+.button:last-child {
+    margin-right: 0;
+}
+
+.button.equals {
+    background: #3498db; /* Blue for equals */
+    color: white;
+}
+
+.button.equals:hover {
+    background: #2980b9;
+}

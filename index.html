@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch((error) => console.error('Service Worker Registration Failed:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const display = document.getElementById('calc-display');
+            const buttons = document.querySelectorAll('.button');
+
+            // Handle button clicks
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const value = button.textContent.trim();
+
+                    if (value === 'C') {
+                        display.value = ''; // Clear display
+                    } else if (value === '←') {
+                        display.value = display.value.slice(0, -1); // Backspace
+                    } else if (value === '=') {
+                        try {
+                            // Replace 'x' with '*' and '÷' with '/' for JavaScript calculations
+                            const expression = display.value.replace(/x/g, '*').replace(/÷/g, '/');
+                            display.value = eval(expression); // Evaluate the expression
+                        } catch (error) {
+                            display.value = 'Error'; // Handle invalid expressions
+                        }
+                    } else {
+                        // Append button value to display
+                        display.value += value;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container" role="application" aria-label="JS Calculator">
+        <div class="calc-body">
+            <div class="calc-screen">
+                <input type="text" id="calc-display" class="calc-operation" readonly aria-label="Calculator display">
+            </div>
+            <div class="calc-button-row">
+                <div class="button c" aria-label="Clear">C</div>
+                <div class="button" aria-label="Divide">÷</div>
+                <div class="button" aria-label="Multiply">x</div>
+                <div class="button" aria-label="Backspace">←</div>
+            </div>
+            <div class="calc-button-row">
+                <div class="button" aria-label="7">7</div>
+                <div class="button" aria-label="8">8</div>
+                <div class="button" aria-label="9">9</div>
+                <div class="button" aria-label="Subtract">-</div>
+            </div>
+            <div class="calc-button-row">
+                <div class="button" aria-label="4">4</div>
+                <div class="button" aria-label="5">5</div>
+                <div class="button" aria-label="6">6</div>
+                <div class="button" aria-label="Add">+</div>
+            </div>
+            <div class="calc-button-row">
+                <div class="button" aria-label="1">1</div>
+                <div class="button" aria-label="2">2</div>
+                <div class="button" aria-label="3">3</div>
+                <div class="button equals" aria-label="Equals">=</div>
+            </div>
+            <div class="calc-button-row">
+                <div class="button zero" aria-label="0">0</div>
+                <div class="button" aria-label="Decimal">.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
