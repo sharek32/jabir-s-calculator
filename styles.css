@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #2b2b2b; /* Dark background for a sleek look */
+    background: #ffffff; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,15 +22,15 @@ body {
 .calc-body {
     width: 320px;
     border-radius: 20px;
-    background: linear-gradient(145deg, #1f1f1f, #353535); /* Subtle dark gradient */
+    background: #eeeeee;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5), inset 0px -3px 10px rgba(255, 255, 255, 0.05);
     padding: 20px;
 }
 
 .calc-screen {
-    background: #1a1a1a; /* Darker screen for contrast */
+    background: #eeeeee;
     border-radius: 15px;
-    border: 2px solid #444;
+    border: 2px solid #c9c9c9;
     height: 60px;
     margin-bottom: 20px;
     display: flex;
@@ -38,7 +38,7 @@ body {
     justify-content: flex-end;
     padding: 10px;
     font-size: 28px;
-    color: #fff;
+    color: #000000;
     font-weight: bold;
 }
 
@@ -46,7 +46,7 @@ body {
     width: 100%;
     border: none;
     background: transparent;
-    color: #fff;
+    color: #0b0b0b;
     text-align: right;
     font-size: 28px;
     font-weight: bold;
@@ -60,14 +60,15 @@ body {
 
 .button {
     flex: 1;
-    background: linear-gradient(145deg, #333, #4b4b4b); /* Smooth button gradient */
+    background: rgb(211, 211, 211);
     border: none;
     margin: 5px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 40px;
+    padding: 16px;
     text-align: center;
-    font-size: 20px;
-    color: #ddd;
+    font-size: 25px;
+    color: #000000;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -75,7 +76,7 @@ body {
 }
 
 .button:hover {
-    background: linear-gradient(145deg, #505050, #606060); /* Hovered button gradient */
+    background: rgb(128, 128, 128);
     transform: translateY(-3px); /* Subtle lift effect */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4), inset 0px -2px 6px rgba(255, 255, 255, 0.05);
 }
@@ -110,4 +111,14 @@ body {
 
 .button.equals:hover {
     background: #2980b9;
+}
+
+.button.backspace, .button.divide,
+.button.multiply, .button.add, 
+.button.subtract {
+    color: #3498db;
+}
+
+.button.backspace {
+    font-size: 18px;
 }
